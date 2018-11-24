@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<h1> accueil </h1>
+<h4>  Bienvenu !</h4>
+{% if not app.user %}
+  <p>  vous n'êtes pas connecté veuillez vous inscrire ou bien vous connecter afin d'accèder à l'ensemble du site </p>
+  {% else %}
+      <p> Vous êtes connecté {{app.user.username}} ! <p>
+{% endif %}
+
+
+{% endblock %}

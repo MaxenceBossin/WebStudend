@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<h5> Liste des Proffeseurs de l'établissement </h5>
+
+Bienvenue à {{maison.code}}
+
+<table class="table table-hover">
+  <tr class="table-dark">
+    <td>Nom</td>
+    <td>Prénom</td>
+  </tr>
+  {% for etudiant in maison.etudiants %}
+    {% if maison.code == 'GFD'%}
+      <tr class="table-danger">
+    {% elseif maison.code == 'PFS' %}
+      <tr class="table-warning">
+    {% elseif maison.code == 'SRG' %}
+      <tr class="table-info">
+    {% else %}
+      <tr class="table-success">
+    {% endif %}
+    <td>{{etudiant.nom}}</td>
+    <td>{{etudiant.prenom}}</td>
+  </tr>
+  {% else %}
+    <tr>
+    <td>Aucun professeur n'a été trouvé.</td>
+    </tr>
+
+
+
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<h5> Liste des Compétences Disponible </h5>
+
+<table class="table table-hover">
+  <tr class="table-dark">
+      <td> Code  </td>
+      <td> Matière </td>
+      <td> Nombre de places disponibles </td>
+      <td> Professeur </td>
+    </tr>
+  {% for competences in listeCompetences %}
+  <tr>
+    <td> {{competences.code}} </td>
+    <td> {{competences.libelle}} </td>
+    <td> {{competences.NombreEtudiantsMax}} </td>
+    <td> <a href="{{ path('ConsulterCompetenceProfesseur',{'id':competences.id}) }}"> Professeur </td>
+  </tr>
+
+  {% else %}
+    <tr>
+    <td>Aucun etudiant n'a été trouvé.</td>
+    </tr>
+
+
+
+  {% endfor %}
+</talbe>
+
+
+
+{% endblock %}

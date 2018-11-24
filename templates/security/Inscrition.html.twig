@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% form_theme formInscription 'bootstrap_4_layout.html.twig' %}
+ {% block body %}
+<h3> Veuillez remplir de le Formulaire d'inscription </h3>
+
+{{ form_start(formInscription) }}
+{{form_row(formInscription.email,
+{'label' : 'Email  : '
+, 'attr' : {'placeholder' : "Veillez saissir votre Mail"}})}}
+{{form_row(formInscription.username,
+{'label' : 'Identifiant  : '
+, 'attr' : {'placeholder' : "Veillez saissir votre Identifiant"}})}}
+{{form_row(formInscription.password,
+{'label' : 'Saisir votre mot de passe : '
+, 'attr' : {'placeholder' : "Veillez saissir votre mot de passe"}})}}
+{{form_row(formInscription.confirmPassword,
+{'label' : 'Confimer votre mot de passe : '
+, 'attr' : {'placeholder' : "Veillez confirmer votre mot de passe"}})}}
+
+
+<button type="submit" class="btn btn-success">Inscription</button>
+
+{{ form_end(formInscription) }}
+
+
+
+{% endblock %}

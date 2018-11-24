@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+ {% form_theme formEtudiant 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+{% if etudiant.nom is null %}
+<h1> Ajout d'un etudiant</h1>
+{% else %}
+<h1> Modification information de {{etudiant.prenom}}</h1>
+{% endif %}
+{{ form_start(formEtudiant) }}
+{{form_row(formEtudiant.nom,{'attr' : {'placeholder' : "Nom de l'étudiant"}} ) }}
+{{form_row(formEtudiant.prenom,{'attr' : {'placeholder' : "prenom de l'étudiant"}} ) }}
+{{form_row(formEtudiant.dateNaissance)}}
+{{form_row(formEtudiant.ville,{'attr' : {'placeholder' : "Ville de l'étudiant"}} ) }}
+{{form_row(formEtudiant.rue,{'attr' : {'placeholder' : "Rue de l'étudiant"}} ) }}
+{{form_row(formEtudiant.codePostal,{'attr' : {'placeholder' : "Code postal"}} ) }}
+{{form_row(formEtudiant.sexe)}}
+{{form_row(formEtudiant.surnom,{'attr' : {'placeholder' : "Surnom de l'étudiant"}} ) }}
+{{form_row(formEtudiant.maison) }}
+
+<button type="submit" class="btn btn-success">
+
+{% if etudiant.nom is null %}
+Ajout
+{% else %}
+Modification
+{% endif %}
+
+{{ form_end(formEtudiant) }}
+
+
+
+
+{% endblock %}
